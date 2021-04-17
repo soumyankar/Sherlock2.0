@@ -11,13 +11,13 @@ git clone https://github.com/soumyankar/Sherlock2.0.git
 cd Sherlock2.0/
 ```
 
-* [**IMPORTANT**] Initialize a `virtualenv` and activate:
+* [**IMPORTANT**] Initialize a `virtualenv` and activate.  
+As an additional check make sure that your console reads the `virtualenv` label as _Sherlock2.0_ after activating.
 
 ```bash
 virtualenv -p python3 ./
 source bin/activate
 ```  
-As an additional make sure that your console reads the `virtualenv` label as _Sherlock2.0_
 
 * Install necessary packages for the flask application
 
@@ -29,8 +29,10 @@ pip install -r requirements.txt
 
 ```bash
 flask run
+```  
+
 Head over to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) on your favourite browser.
-```
+
 ## Contributing  
 
 * Fork the repo first.
