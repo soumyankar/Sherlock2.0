@@ -1,5 +1,6 @@
 body{
 	margin:8;
+<<<<<<< HEAD
 	 font-family: Arial;
 }
 
@@ -93,4 +94,7 @@ text-align:left;
   border:2px solid black;
   border-radius: 8px;
 
+=======
+	font-family: sans-serif;
+>>>>>>> 88e4afd79eff2de5b8f6ad7b53a735ae0808eb6c
 }
