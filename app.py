@@ -15,9 +15,6 @@ from homepage import homepage
 app = Flask(__name__)
 app.register_blueprint(homepage, url_prefix="")
 
-if __name__=="__main__":
-	truth.run(debug=True)
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
