@@ -40,6 +40,7 @@ input[type=text] {
   border: 2px solid black;
   border-radius: 4px;
   font-size: 16px;
+  color:black;
   background-color: white;
   background-image: url("static/css/searchicon.jpg");
   background-position: 10px 10px;
