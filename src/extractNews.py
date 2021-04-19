@@ -4,6 +4,6 @@ extractor = extractors.ArticleExtractor()
 
 def extractNews(news_url):
 	doc = extractor.get_doc_from_url(news_url)
-	content = doc.content
-	title = doc.title
-	return NewsTitle, NewsContent
+	articleContent = doc.content
+	articleTitle = doc.title
+	return articleTitle, articleContent
