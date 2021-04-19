@@ -9,51 +9,52 @@
 
 
 
-<!--animated menu tag-->
-	<div class="container" onclick="myFunction(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-<h1> THE GAME IS ON, WATSON.</h1>
-<!--function of meny tag-->
-<script>
-function myFunction(x) {
-  x.classList.toggle("change");
-}
-</script>
+  <!--animated menu tag-->
+  <div class="container" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <h1> THE GAME IS ON, WATSON.</h1>
+  <!--function of meny tag-->
+  <script>
+    function myFunction(x) {
+      x.classList.toggle("change");
+    }
+  </script>
 
-<div class="Search">
- <label for="search">Input a news headline</label></br>
-    <input type="text" id="search" placeholder="Search..">
-
-<input type="submit" value="GO">
-</div>
+  <div class="Search">
+   <label for="search">Input a news headline</label></br>
+   <form method="POST">
+   <input type="text" name="searchQuery" placeholder="Search..">
+   <input type="submit" value="GO">
+ </form>
+ </div>
 
 </br>
 </br>
 
 <div class ="All_dropdowns">
-<div class="dropdown">
-  <span> > ARTICLE ATTRIBUTES</span>
-  <div class="dropdown-content">
-  <p>//additional information</p>
+  <div class="dropdown">
+    <span> > ARTICLE ATTRIBUTES</span>
+    <div class="dropdown-content">
+      <p>//additional information</p>
+    </div>
   </div>
-</div>
 </br>
 </br>
 <div class="dropdown">
   <span> > CLASSIFICATION</span>
   <div class="dropdown-content">
-  <p>//additional information</p>
+    <p>//additional information</p>
   </div>
 </div>
 </br>
 </br>
-    <div class="dropdown">
+<div class="dropdown">
   <span> > OTHER INFORMATION</span>
   <div class="dropdown-content">
-  <p>//additional information</p>
+    <p>//additional information</p>
   </div>
 </div>
 </div>
