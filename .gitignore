@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 pyvenv.cfg
+.DS_Store
 # C extensions
 *.so
 
