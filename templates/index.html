@@ -1,63 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-<head>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
-	<title>SHERLOCK 2.0</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-
-
-
-  <!--animated menu tag-->
-  <div class="container" onclick="myFunction(this)">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-  </div>
-  <h1> THE GAME IS ON, WATSON.</h1>
-  <!--function of meny tag-->
-  <script>
-    function myFunction(x) {
-      x.classList.toggle("change");
-    }
-  </script>
-
-  <div class="Search">
+{% block search %}
+<div class="Search">
    <label for="search">Input a news headline</label></br>
    <form method="POST">
-   <input type="text" name="searchQuery" placeholder="Search..">
-   <input type="submit" value="GO">
- </form>
+     <input type="text" name="searchQuery" id="searchQuery" placeholder="Search..">
+     <input type="submit" value="GO">
+   </form>
  </div>
+{% endblock%}
 
-</br>
-</br>
 
-<div class ="All_dropdowns">
-<div class="dropdown">
-  <span> > ARTICLE ATTRIBUTES</span>
-  <div class="dropdown-content">
-  <p>//additional information</p>
-  </div>
-</div>
-</br>
-</br>
-<div class="dropdown">
-  <span> > CLASSIFICATION</span>
-  <div class="dropdown-content">
-  <p>//additional information</p>
-  </div>
-</div>
-</br>
-</br>
-    <div class="dropdown">
-  <span> > OTHER INFORMATION</span>
-  <div class="dropdown-content">
-  <p>//additional information</p>
-  </div>
-</div>
-</div>
+{% block attributes%}
 
-</body>
-</html> 
+{% endblock %}
