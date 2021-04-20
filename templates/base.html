@@ -23,31 +23,16 @@
 
 </br>
 </br>
-
-<div class ="All_dropdowns">
-  <div class="dropdown">
-    <span> > ARTICLE ATTRIBUTES</span>
-    <div class="dropdown-content">
-      <p>//additional information</p>
-    </div>
-  </div>
+{% block attributes %}
+{% endblock %}
 </br>
 </br>
-<div class="dropdown">
-  <span> > CLASSIFICATION</span>
-  <div class="dropdown-content">
-    <p>//additional information</p>
-  </div>
-</div>
+{% block classification %}
+{% endblock %}
 </br>
 </br>
-<div class="dropdown">
-  <span> > OTHER INFORMATION</span>
-  <div class="dropdown-content">
-    <p>//additional information</p>
-  </div>
-</div>
-</div>
-
+{% block information %}
+{% endblock %}
+</div> <!--I couldn't figure out what this is for-->
 </body>
 </html> 
