@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, url_for, Blueprint, render_template
 from extractNews import extractNews
-from tools.urlValidator import URLValidator
+from tools.urlHandling import URLValidator
 homepage = Blueprint("homepage", __name__, static_folder="../static", template_folder="../templates")
 
 @homepage.route("/", methods=['GET', 'POST'])
