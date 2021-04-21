@@ -10,5 +10,18 @@
 <p id="articleTitle">{{ articleTitle }}</p>
 <br>
 <p id="articleContent">{{ articleContent }}</p>
+
+<table>
+	<tr>
+		<th>Category Name</th>
+		<th>Confidence Factor</th>
+	</tr>
+	{% for category in articleCategories %}
+	<tr>
+		<td>{{category.name}}</td>
+		<td>{{category.confidence}}</td>
+	</tr>
+	{% endfor %}
+</table>
 </body>
 </html>
