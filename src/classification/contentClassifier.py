@@ -7,7 +7,7 @@ from google.cloud import language_v1
 import numpy
 import six
 
-def textClassify(text, verbose=True):
+def textClassify(text, verbose=False):
     """Classify the input text into categories. """
 
     language_client = language_v1.LanguageServiceClient()
@@ -34,3 +34,21 @@ def textClassify(text, verbose=True):
             print(u"{:<16}: {}".format("confidence", category.confidence))
 
     return categories
+
+
+def sentimentClassify(text, verbose=True):
+	# Instantiates a client
+	client = language_v1.LanguageServiceClient()
+
+	# The text to analyze
+	document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
+
+	# Detects the sentiment of the text
+	sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
+
+	# Check if verbose
+	if verbose:
+		print("Text: {}".format(text))
+		print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
+
+	return sentiment
