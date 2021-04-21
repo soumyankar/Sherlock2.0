@@ -4,24 +4,33 @@
 	<title>Debugging</title>
 </head>
 <body>
-<h1>Debugging Info</h1>
-<br>
-<p>URL Validity? <span name="urlValidity">{{ urlValidity }}</span></p>
-<p id="articleTitle">{{ articleTitle }}</p>
-<br>
-<p id="articleContent">{{ articleContent }}</p>
-
-<table>
-	<tr>
-		<th>Category Name</th>
-		<th>Confidence Factor</th>
-	</tr>
-	{% for category in articleCategories %}
-	<tr>
-		<td>{{category.name}}</td>
-		<td>{{category.confidence}}</td>
-	</tr>
-	{% endfor %}
-</table>
+	<h1>Debugging Info</h1>
+	<br>
+	<p>URL Validity? <span name="urlValidity">{{ urlValidity }}</span></p>
+	<p id="articleTitle">{{ articleTitle }}</p>
+	<br>
+	<p id="articleContent">{{ articleContent }}</p>
+	{% if articleCategories|length < 1%}
+	<p>That's weird? No categories rendered!</p>
+	{% else %}
+	<table>
+		<tr>
+			<th>Category Name</th>
+			<th>Confidence Factor</th>
+		</tr>
+		{% for category in articleCategories %}
+		<tr>
+			<td>{{category.name}}</td>
+			<td>{{category.confidence}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+	{% if sentimentScore is not defined%}
+	<p>No sentiment score or magnitude to show.</p>
+	{% else %}
+	<p>Sentiment Score = {{ sentimentScore.score }}</p>
+	<p>Sentiment Magnitude = {{ sentimentScore.magnitude }}</p>
+	{% endif %}
 </body>
 </html>
