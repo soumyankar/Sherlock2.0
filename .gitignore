@@ -6,6 +6,9 @@ __pycache__/
 *$py.class
 pyvenv.cfg
 .DS_Store
+
+# API Keys
+creds/
 # C extensions
 *.so
 
