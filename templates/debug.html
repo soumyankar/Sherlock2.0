@@ -7,12 +7,21 @@
 	<h1>Debugging Info</h1>
 	<br>
 	<p>URL Validity? <span name="urlValidity">{{ urlValidity }}</span></p>
+	
+	<!-- Article Title -->
+	<h4>Article Title</h4>
 	<p id="articleTitle">{{ articleTitle }}</p>
 	<br>
+	
+	<!-- Article Content -->
+	<h4>Scraped Article Content</h4>
 	<p id="articleContent">{{ articleContent }}</p>
+
+	<!-- Categories for the article content -->
 	{% if articleCategories|length < 1%}
 	<p>That's weird? No categories rendered!</p>
 	{% else %}
+	<h4>Categories</h4>
 	<table>
 		<tr>
 			<th>Category Name</th>
@@ -26,11 +35,27 @@
 		{% endfor %}
 	</table>
 	{% endif %}
+
+	<!-- Sentiment Scores -->
 	{% if sentimentScore is not defined%}
 	<p>No sentiment score or magnitude to show.</p>
 	{% else %}
+	<h4>Sentiment Scores</h4>
 	<p>Sentiment Score = {{ sentimentScore.score }}</p>
 	<p>Sentiment Magnitude = {{ sentimentScore.magnitude }}</p>
 	{% endif %}
+
+	<!-- Keywords for the article -->
+	{% if articleKeywords|length < 1 %}
+	<p>That's weird? No article keywords to show :(</p>
+	{% else %}
+	<h4>Keywords</h4>
+	<p>
+		{% for keyword in articleKeywords %}
+		{{keyword}} ,
+		{% endfor %}
+	</p>
+	{% endif %}
+	
 </body>
 </html>
