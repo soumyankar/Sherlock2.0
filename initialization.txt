@@ -1,0 +1,3 @@
+python -m spacy download en_core_web_sm
+create creds/api_key
+link GOOGLE_CREDENTIALS in .bash_profile or .bashrc
