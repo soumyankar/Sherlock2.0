@@ -2,6 +2,16 @@
 <html>
 <head>
 	<title>Debugging</title>
+	<style type="text/css">
+		td {
+			border: 1px solid #000;
+		}
+
+		tr td:last-child {
+			width: 1%;
+			white-space: nowrap;
+		}
+	</style>
 </head>
 <body>
 	<h1>Debugging Info</h1>
@@ -50,12 +60,45 @@
 	<p>That's weird? No article keywords to show :(</p>
 	{% else %}
 	<h4>Keywords</h4>
-	<p>
-		{% for keyword in articleKeywords %}
-		{{keyword}} ,
+	<table style="width: 100%">
+		<tr>
+			<th></th>
+			<th>Rank</th>
+			<th>Count</th>
+			<th>Text</th>
+		</tr>
+		{% for id,key in articleKeywords.items()%}
+		<tr>
+			<td>{{id}}</td>
+			<td>{{key.rank}}</td>
+			<td>{{key.count}}</td>
+			<td>{{key.text}}</td>
+		</tr>
 		{% endfor %}
-	</p>
+	</table>
 	{% endif %}
-	
+
+	<!-- Entities for the article -->
+	{% if articleEntities|length < 1%}
+	<p>Didnt find any entities for this text.</p>
+	{% else %}
+	<h4>Entities</h4>
+	<table style="width: 100%">
+		<tr>
+			<th></th>
+			<th>Entity</th>
+			<th>Label</th>
+			<th>Label Description</th>
+		</tr>
+		{% for id,key in articleEntities.items() %}
+		<tr>
+			<td>{{ id }}</td>
+			<td>{{ key.text}}</td>
+			<td>{{ key.label }}</td>
+			<td>{{ key.description }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
 </body>
 </html>
