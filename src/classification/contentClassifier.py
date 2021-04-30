@@ -7,7 +7,7 @@ from google.cloud import language_v1
 import numpy
 import six
 
-def textClassify(text, verbose=False):
+def categoryClassify(text, verbose=False):
     """Classify the input text into categories. """
 
     language_client = language_v1.LanguageServiceClient()
@@ -25,7 +25,6 @@ def textClassify(text, verbose=False):
         # {category.name: category.confidence}, so that they can
         # be treated as a sparse vector.
         result[category.name] = category.confidence
-
     if verbose:
         print(text)
         for category in categories:
@@ -36,7 +35,7 @@ def textClassify(text, verbose=False):
     return categories
 
 
-def sentimentClassify(text, verbose=True):
+def sentimentClassify(text, verbose=False):
 	# Instantiates a client
 	client = language_v1.LanguageServiceClient()
 
