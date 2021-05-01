@@ -46,6 +46,8 @@ def GetPhrases(text, verbose = False):
 	for p in doc._.phrases:
 		if limit > 60: # NewsAPI only support uptil 60 keywords so we wanna keep below that.
 			break
+		if p.rank < 0.0:
+			continue
 		features[limit] = {}
 		features[limit]['rank']=p.rank
 		features[limit]['count']=p.count
