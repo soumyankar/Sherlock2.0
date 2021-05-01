@@ -17,7 +17,11 @@
 	<h1>Debugging Info</h1>
 	<br>
 	<p>URL Validity? <span name="urlValidity">{{ urlValidity }}</span></p>
-	
+	<p>Execution Time for News Article Scraping = <strong>{{ elapsedTimeScraping }}</strong> secs. </p>
+	<p>Execution Time for Article Content Categorizing = <strong>{{ elapsedTimeGoogle }}</strong>secs. </p>
+	<p>Execution Time for Article Feature Extraction = <strong>{{ elapsedTimeFeatures }}</strong>secs. </p>
+	<p>Exectuion Time for fetching articles from NewsAPI = <strong>{{ elapsedTimeNewsAPI }}</strong>secs. </p>
+	<p>Total Execution Time = <strong>{{ totalExecutionTime }}</strong>secs.</p>
 	<!-- Article Title -->
 	<h4>Article Title</h4>
 	<p id="articleTitle">{{ articleTitle }}</p>
