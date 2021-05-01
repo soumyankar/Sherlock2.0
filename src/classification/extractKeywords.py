@@ -3,6 +3,28 @@ import pytextrank
 from collections import Counter
 from string import punctuation
 
+# Define all the features and the labels.
+nlp = spacy.load('en_core_web_sm') # The spacy model that we'll be using.
+label_tag = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY']
+label_description = ['People, including fictional characters',
+'Nationalities or religious or political groups',
+'Buildings, airports, highways or bridges etc.',
+'Companies, agencies, instituions etc.',
+'Countries, Cities, Towns',
+'Non-GPE locations, mountain ranges, bodies of water',
+'Objects, vehicles, foods, etc. (Not Servies',
+'Named Hurricanes, Battles, Wars, Sports Events, etc.',
+'Titles of books, songs etc.',
+'Named documents made into laws',
+'Any named language',
+'Absolute or relative dates or periods',
+'Times smaller than a day',
+'Percentages, including \'%\' ',
+'Monetary values, including unit',
+'Measurements , as of weights or distance']
+pos_tag = ['PROPN', 'ADJ', 'NOUN', 'NUM'] # 1
+
+
 def ExtractKeywords(text):
 	features = (GetPhrases(text))
 	return features
@@ -11,7 +33,6 @@ def ExtractEntities(text):
 	return GetEntities(text)
 
 def GetPhrases(text, verbose = False):
-	nlp = spacy.load('en_core_web_sm')
 
 	# tr = pytextrank.TextRank()
 	nlp.add_pipe("textrank")
@@ -36,25 +57,8 @@ def GetPhrases(text, verbose = False):
 	return features
 
 def GetEntities(text):
-	nlp = spacy.load('en_core_web_sm')
+	text = RemoveDuplicateWords(text)
 	doc = nlp(text)
-	label_tag = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY']
-	label_description = ['People, including fictional characters',
-	'Nationalities or religious or political groups',
-	'Buildings, airports, highways or bridges etc.',
-	'Companies, agencies, instituions etc.',
-	'Countries, Cities, Towns',
-	'Non-GPE locations, mountain ranges, bodies of water',
-	'Objects, vehicles, foods, etc. (Not Servies',
-	'Named Hurricanes, Battles, Wars, Sports Events, etc.',
-	'Titles of books, songs etc.',
-	'Named documents made into laws',
-	'Any named language',
-	'Absolute or relative dates or periods',
-	'Times smaller than a day',
-	'Percentages, including \'%\' ',
-	'Monetary values, including unit',
-	'Measurements , as of weights or distance']
 	entities = {}
 	inc = 1
 	index = -99
@@ -69,9 +73,7 @@ def GetEntities(text):
 	return entities
 
 def GetFeatures(text):
-	nlp = spacy.load("en_core_web_sm")
 	result = []
-	pos_tag = ['PROPN', 'ADJ', 'NOUN', 'NUM'] # 1
 	doc = nlp(text.lower()) # 2
 	for token in doc:
 	    # 3
@@ -95,3 +97,8 @@ def GetFeatures(text):
 	        result.append([token.pos_, token.text])
 
 	return result
+
+# Helper function for removing duplicate words.
+def RemoveDuplicateWords(text):
+	words = text.split()
+	return (" ".join(sorted(set(words), key=words.index)))
