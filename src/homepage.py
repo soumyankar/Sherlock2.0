@@ -1,8 +1,12 @@
 from flask import Flask, request, redirect, url_for, Blueprint, render_template
 from tools.extractNews import ExtractNews
 from tools.urlHandling import URLValidator
+from tools.fetchNews import FetchNews
 from classification.contentClassifier import categoryClassify, sentimentClassify
 from classification.extractKeywords import ExtractKeywords, ExtractEntities
+
+import time
+
 homepage = Blueprint("homepage", __name__, static_folder="../static", template_folder="../templates")
 
 @homepage.route("/", methods=['GET', 'POST'])
@@ -12,12 +16,41 @@ def index():
 		urlValidity = URLValidator(newsUrl)
 		if(urlValidity == False):
 			return render_template('debug.html', urlValidity = urlValidity)
+		
+		startTime = time.time()
+		# News article scraping
+
+		start = time.time() # Verifying elapsed time 	
 		articleTitle, articleContent = ExtractNews(newsUrl)
+		end = time.time()
+		elapsedTimeScraping = end - start
+
+		# Google API article categorizing
+
+		start = time.time() # Verifying elapsed time 	
 		articleCategories = categoryClassify(articleContent)
 		sentimentScore = sentimentClassify(articleContent)
+		end = time.time()
+		elapsedTimeGoogle = end - start
+
+		# Article Feature Extraction 
+		start = time.time() # Verifying elapsed time 	
 		articleKeywords = ExtractKeywords(articleContent)
 		articleEntities = ExtractEntities(articleContent)
-		return render_template('debug.html',urlValidity = urlValidity, articleTitle = articleTitle, articleContent = articleContent, articleCategories= articleCategories, sentimentScore= sentimentScore, articleKeywords= articleKeywords, articleEntities = articleEntities)
+		end = time.time()
+		elapsedTimeFeatures = end - start
+
+		# Fetching relevant news aritcles frrom NewsAPI
+
+		start = time.time() # Verifying elapsed time 	
+		fetchedNewsArticles = FetchNews(articleKeywords)
+		end = time.time()
+		elapsedTimeNewsAPI = end - start
+
+		# Pass values to frontend.
+		endTime = time.time()
+		totalExecutionTime = endTime - startTime
+		return render_template('debug.html',elapsedTimeScraping = elapsedTimeScraping, elapsedTimeGoogle= elapsedTimeGoogle, elapsedTimeFeatures = elapsedTimeFeatures, elapsedTimeNewsAPI= elapsedTimeNewsAPI, totalExecutionTime= totalExecutionTime, urlValidity = urlValidity, articleTitle = articleTitle, articleContent = articleContent, articleCategories= articleCategories, sentimentScore= sentimentScore, articleKeywords= articleKeywords, articleEntities = articleEntities)
 	return render_template('index.html')	
 	if __name__=="__main__":
 		truth.run(debug=True)
