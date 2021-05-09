@@ -1,6 +1,9 @@
 body{
 	margin:8;
-	 font-family: Arial;
+  font-family: Arial;
+  background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -59,7 +62,7 @@ input[type=submit] {
   border-radius: 8px;
 }
 .Search {
-text-align: center;
+  text-align: center;
 }
 
 ::placeholder {
@@ -88,10 +91,10 @@ text-align: center;
 }
 
 .All_dropdowns{
-text-align:left;
-padding: 10px 10px;
-margin: 100px 100px;
-border:2px solid black;
-border-radius: 8px;
-font-family: sans-serif;
+  text-align:left;
+  padding: 10px 10px;
+  margin: 100px 100px;
+  border:2px solid black;
+  border-radius: 8px;
+  font-family: sans-serif;
 }

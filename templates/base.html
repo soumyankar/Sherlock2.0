@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
-	<title>SHERLOCK 2.0</title>
+  <title>My first responsive website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  
 </head>
 <body>
-  <!--animated menu tag-->
-  <div class="container" onclick="myFunction(this)">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-  </div>
-  <h1> THE GAME IS ON, WATSON.</h1>
-  <!--function of meny tag-->
-  <script>
-    function myFunction(x) {
-      x.classList.toggle("change");
-    }
-  </script>
-  {% block search %}
- {% endblock %}
 
-</br>
-</br>
-{% block attributes %}
-{% endblock %}
-</br>
-</br>
-{% block classification %}
-{% endblock %}
-</br>
-</br>
-{% block information %}
-{% endblock %}
-</br>
-</br>
-</div> <!--I couldn't figure out what this is for-->
-</body>
-</html> 
+  <div class="bg-image">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);" >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#"><span class="mb-0 h2">Sherlock 2.0</span></a>
+          <div class="pull-right">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/statistics">Statistics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/working">Working</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/about-us">About Us</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+  </div>
+      <br/>
+      <br/>
+      {% block container %}
+      {% endblock %}
+
+
+      <!-- Always place before body element for faster page loading. -->
+      <!-- JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Font Awesome -->
+      <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+      <!-- Bootstrap bundle js -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    </body>
+    </html>

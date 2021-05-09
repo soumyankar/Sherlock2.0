@@ -11,9 +11,11 @@ sys.path.append('./src')
 
 # Import src python files
 from homepage import homepage
+from aboutus import aboutus
 
 app = Flask(__name__)
 app.register_blueprint(homepage, url_prefix="")
+app.register_blueprint(aboutus, url_prefix="")
 
 @app.errorhandler(404)
 def page_not_found(e):
