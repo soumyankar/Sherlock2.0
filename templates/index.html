@@ -1,78 +1,83 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<div class="container-fluid padding">
-  <div class="row welcome text-center">
-    <div class="col-12">
-      <h1 class="display-4">SHERLOCK 2.0</h1>
-      <hr>
-      <div class="col-12">
-        <p class="lead">Hi, welcome to SHERLOCK 2.0. This is an application which detects the Truth/Falsity of a news article based on Machine Learning and Recurrent Neural Networks.
-        </br>So , what are you waiting for , Let's Go....</p>
+<!-- Begin Page Content from this point. -->
+<main role="main" class="flex-shrink-0">
+  <div class="container-fluid p-auto m-auto">
+    <!-- Hero Banner for Sherlock 2.0 -->
+    <div class="row p-3 m-3">
+      <div class="d-flex flex-column justify-content-center">
+        <h1 class="fw-bold text-center">SHERLOCK 2.0</h1>
+        <h4 class="fw-light justify-content-center text-center">Hi, welcome to SHERLOCK 2.0. This is an application which detects the Truth/Falsity of a news article based on Machine Learning and Recurrent Neural Networks.</h4>
+        <h4 class="fw-light justify-content-center text-center">So , what are you waiting for , Let's Go....</h4>
+        <h4 class="fw-light justify-content-center text-center">What type of data do you want to enter..??</h4>
       </div>
-    </div>
-  </div>
-</div>
-</br>
-
-
-<div class="card-body">
-  <h2 align="center">What type of data do you want to enter..??</h2>
-</div>
-<div class="card-body" align="center">
-
-  <form method="POST">
-    <div class="form-group">
-      <div id="input_all"  style="display: flex;">
-        <input type="text" class="form-control" id="searchQuery" name="searchQuery" placeholder="URL/Data">  
-        <!-- Example split danger button -->
-        <div class="btn-group ml-4 mr-4" >
-          <button type="button" class="btn btn-danger">Choose Type</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">URL</a>
-            <a class="dropdown-item" href="#">Data</a>
+      <form method="POST">
+        <div class="form-group">
+          <div id="input_all"  style="display: flex;">
+            <input type="text" class="form-control p-1 m-1" id="searchQuery" name="searchQuery" placeholder="URL/Data">  
+            <!-- Example split danger button -->
+            <div class="btn-group m-1">
+              <button type="button" class="btn btn-danger">Select</button>
+              <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">URL</a>
+                <a class="dropdown-item" href="#">Raw Content</a>
+              </div>
+            </div>
+            <button class="btn btn-primary m-1" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
           </div>
         </div>
-        <button class="btn btn-primary" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
+      </form>
+    </div>
+    <!-- Attribute show sections -->
+    <div class="row p-3 m-3 content-header">
+      <!-- Stats left side column -->
+      <div class="col-md-3 stats-header">
+        <div class="row stats-container">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Server Stats</h5>
+              <p class="card-text">A section to show the server statistics and the versioning currently being used by Sherlock 2.0</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Server Status</li>
+              <li class="list-group-item">Server Host</li>
+              <li class="list-group-item">Sherlock Versioning</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row stats-container">
+          <p>GH Repo Link</p>
+          <p>email linnk</p>
+        </div>
+        <div class="row stats-container">
+          <p>Sherlock 2.0 makes use of language models from <a href="https://spacy.io">spaCy.io</a> and other datasets from <a href="https://www.kaggle.com">Kaggle</a>.</p>
+        </div>
       </div>
-    </div>
-  </br>
-  </form>
-</div>
 
-<div class="card bg-light mb-3 ml-5 mr-5" >
-  <div class="card-header">Article Attributes</div>
-  <div class="collapse multi-collapse" id="multiCollapseExample1">
-    <div class="card-body">
-      <p class="card-text" id="GetAttribues">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <!-- Attributes right side column -->
+      <div class="col-md-9">
+        <div class="row">
+          <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
+          <h4>URL Input</h4>
+          <pre><code class="plaintext">www.google.come</code></pre>
+          <h4>Article Title</h4>
+          <pre><code class="plaintext">The world is going to end in 2012!</code></pre>
+          <h4>Scraped Article Content</h4>
+          <pre><code class="plaintext">Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum</code></pre>
+          <h4>Article Categories</h4>
+          <pre><code class="plaintext">/Category 1</code></pre>
+          <pre><code class="plaintext">Category 2</code></pre>
+          <pre><code class="plaintext">Category 2</code></pre>
+          <pre><code class="plaintext">Category 2</code></pre>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-
-<div class="card bg-light mb-3 ml-5 mr-5" >
-  <div class="card-header">Classification</div>
-  <div class="collapse multi-collapse" id="multiCollapseExample2">
-    <div class="card-body">
-      <p class="card-text" id="GetClassification">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card bg-light mb-3 ml-5 mr-5" >
-  <div class="card-header">Other Attributes</div>
-  <div class="collapse multi-collapse" id="multiCollapseExample3">
-    <div class="card-body">
-      <p class="card-text" id="GetOtherAttributes">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-</div>
-</br>
-</br>
-</br>
-</br>
-</div>
+</main>
 
 {% endblock %}

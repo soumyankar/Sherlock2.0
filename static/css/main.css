@@ -1,7 +1,7 @@
 body{
 	margin:8;
   font-family: Arial;
-  background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");
+  /*background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");*/
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -15,6 +15,20 @@ h1 {
 .container {
   display: inline-block;
   cursor: pointer;
+}
+
+.content-header {
+  border-top: 1px solid #e9e9ed;
+}
+.stats-header {
+  border-right: 1px solid #e9e9ed;
+}
+.stats-container {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  border-bottom: 1px solid #e9e9ed;
+  position: relative;
 }
 
 .bar1, .bar2, .bar3 {
