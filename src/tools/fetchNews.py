@@ -1,4 +1,4 @@
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 from urllib.parse import urlencode, quote_plus
 import urllib.parse
 import xml.dom.minidom
