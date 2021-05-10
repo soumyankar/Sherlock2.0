@@ -7,7 +7,21 @@ from classification.extractKeywords import ExtractKeywords, ExtractEntities
 
 import time
 import json
-
+# Data to be sent to frontend.
+data = {
+	"newsURL": "",
+	"urlValidity": "",
+	"articleTitle": "",
+	"articleContent": "",
+	"articleCategories": {},
+	"sentimentScore": {},
+	"articleEntities": {},
+	"elapsedTimeScraping": 0,
+	"elapsedTimeCategorizing": 0,
+	"elapsedTimeFeatures": 0,
+	"elapsedTimeNewsAPI": 0,
+	"totalExecutionTime": 0
+}
 homepage = Blueprint("homepage", __name__, static_folder="../static", template_folder="../templates")
 
 @homepage.route("/", methods=['GET'])
@@ -16,8 +30,8 @@ def index():
 
 @homepage.route('/', methods=['POST'])
 def render():
-	newsUrl = request.form['searchQuery']
-	urlValidity = URLValidator(newsUrl)
+	newsURL = request.form['searchQuery']
+	urlValidity = URLValidator(newsURL)
 	if(urlValidity == False):
 		return render_template('debug.html', urlValidity = urlValidity)
 
@@ -25,7 +39,7 @@ def render():
 	# News article scraping
 
 	start = time.time() # Verifying elapsed time 	
-	articleTitle, articleContent = ExtractNews(newsUrl)
+	articleTitle, articleContent = ExtractNews(newsURL)
 	end = time.time()
 	elapsedTimeScraping = end - start
 
@@ -35,7 +49,7 @@ def render():
 	articleCategories = categoryClassify(articleContent)
 	sentimentScore = sentimentClassify(articleContent)
 	end = time.time()
-	elapsedTimeGoogle = end - start
+	elapsedTimeCategorizing = end - start
 
 	# Article Feature Extraction 
 	start = time.time() # Verifying elapsed time 	
@@ -54,4 +68,17 @@ def render():
 	# Pass values to frontend.
 	endTime = time.time()
 	totalExecutionTime = endTime - startTime
-	return json.dumps({'articleTitle:':articleTitle})
+	data['newsURL'] = newsURL
+	data['urlValidity'] = urlValidity
+	data['articleTitle'] = articleTitle
+	data['articleContent'] = articleContent
+	# data['articleCategories'] = articleCategories
+	# data['sentimentScore'] = sentimentScore
+	data['articleEntities'] = articleEntities
+	data['elapsedTimeScraping'] = elapsedTimeScraping
+	data['elapsedTimeFeatures'] = elapsedTimeFeatures
+	data['elapsedTimeCategorizing'] = elapsedTimeCategorizing
+	data['elapsedTimeNewsAPI'] = elapsedTimeNewsAPI
+	data['totalExecutionTime'] = totalExecutionTime
+	print (data)
+	return json.dumps(data)

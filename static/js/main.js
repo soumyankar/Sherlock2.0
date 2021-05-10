@@ -32,6 +32,10 @@ $('document').ready(function(){
                 type: 'POST',
                 success: function(response) {
                     console.log(response);
+                    var parsed_json = JSON.parse(response);
+                    $('#newsURL').html(parsed_json.newsURL);
+                    $('#articleTitle').html(parsed_json.articleTitle);
+                    $('#articleContent').html(parsed_json.articleContent);
                 },
                 error: function(error) {
                     console.log(error);
