@@ -5,6 +5,7 @@ from string import punctuation
 
 # Define all the features and the labels.
 nlp = spacy.load('en_core_web_sm') # The spacy model that we'll be using.
+nlp.add_pipe("textrank")
 label_tag = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY']
 label_description = ['People, including fictional characters',
 'Nationalities or religious or political groups',
@@ -35,7 +36,7 @@ def ExtractEntities(text):
 def GetPhrases(text, verbose = False):
 
 	# tr = pytextrank.TextRank()
-	nlp.add_pipe("textrank")
+	# nlp.add_pipe("textrank")
 	# nlp.add_pipe(tr.PipelineComponent, name='textrank', last=True)
 
 	# text = 'Compatibility of systems of linear constraints over the set of natural numbers. Criteria of compatibility of a system of linear Diophantine equations, strict inequations, and nonstrict inequations are considered.'

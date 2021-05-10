@@ -12,7 +12,7 @@
         <h4 class="fw-light justify-content-center text-center">So , what are you waiting for , Let's Go....</h4>
         <h4 class="fw-light justify-content-center text-center">What type of data do you want to enter..??</h4>
       </div>
-      <form method="POST" id="searchForm">
+      <form id="searchForm">
         <div class="form-group">
           <div id="input_all"  style="display: flex;">
             <input type="text" class="form-control p-1 m-1" id="searchQuery" name="searchQuery" placeholder="URL/Data">  
@@ -27,7 +27,7 @@
                 <a class="dropdown-item" href="#">Raw Content</a>
               </div>
             </div>
-            <button class="btn btn-primary m-1" id="search" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
+            <button class="btn btn-primary m-1" id="search" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
           </div>
         </div>
       </form>
@@ -83,6 +83,8 @@
 {% endblock %}
 
 {% block head %}
+<!-- Pace.js options -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/paceOptions.js') }}"></script>
 <!-- Highlight.js -->
 <link rel="stylesheet"
 href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">

@@ -1,13 +1,8 @@
+$(document).ajaxStart(function() { Pace.restart(); });
+
 $('document').ready(function(){
-    $('#search').on('keypress', function(e){
-        if(e.which == 13)
-            $('#search').click();
-    });
-    $('#searchQuery').on('keypress', function(e){
-        if(e.which == 13)
-            $('#search').click();
-    });
-    $('#search').on('click', function(e){
+    $('form').on('submit', function(e){
+        e.preventDefault();
         console.log('123');
         if(validateData()==false)
         {
@@ -23,7 +18,7 @@ $('document').ready(function(){
             },
             error: function(error) {
                 console.log(error);
-            }
+            },
         });
     });
 });
