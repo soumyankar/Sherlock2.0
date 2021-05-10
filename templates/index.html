@@ -2,7 +2,7 @@
 
 {% block container %}
 <!-- Begin Page Content from this point. -->
-<main role="main" class="flex-shrink-0">
+<main class="rendered-content" role="main" class="flex-shrink-0">
   <div class="container-fluid p-auto m-auto">
     <!-- Hero Banner for Sherlock 2.0 -->
     <div class="row p-3 m-3">
@@ -62,6 +62,9 @@
       <div class="col-md-9">
         <div class="row">
           <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
+        </div>
+        <!-- AJAX Request Rendering Section. -->
+        <div class="row nlp-section" style="display: none;">
           <h4>URL Input</h4>
           <pre><code class="plaintext">www.google.come</code></pre>
           <h4>Article Title</h4>
@@ -75,8 +78,8 @@
           <pre><code class="plaintext">Category 2</code></pre>
         </div>
       </div>
-
     </div>
+
   </div>
 </main>
 
