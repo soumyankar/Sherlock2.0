@@ -72,8 +72,8 @@ def render():
 	data['urlValidity'] = urlValidity
 	data['articleTitle'] = articleTitle
 	data['articleContent'] = articleContent
-	# data['articleCategories'] = articleCategories
-	# data['sentimentScore'] = sentimentScore
+	data['articleCategories'] = articleCategories
+	data['sentimentScore'] = sentimentScore
 	data['articleEntities'] = articleEntities
 	data['elapsedTimeScraping'] = elapsedTimeScraping
 	data['elapsedTimeFeatures'] = elapsedTimeFeatures

@@ -65,17 +65,40 @@
         </div>
         <!-- AJAX Request Rendering Section. -->
         <div class="row nlp-section" style="display: none;">
+          <!-- Module Execution Times -->
+          <h4>Module Execution Times</h4>
+          <p>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></p>
+          <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
+          <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
+          <p>Time taken for Web Crawling = <strong id="elapsedTimeNewsAPI">0</strong></p>
+          <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
+          <!-- Scraping Module -->
           <h4>URL Input</h4>
           <pre><code class="plaintext" id="newsURL">www.google.come</code></pre>
+          <!-- Article Title -->
           <h4>Article Title</h4>
           <pre><code class="plaintext" id="articleTitle">The world is going to end in 2012!</code></pre>
+          <!-- Article Content -->
           <h4>Scraped Article Content</h4>
-          <pre><code class="plaintext" id="articleContent">Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum</code></pre>
-          <h4>Article Categories</h4>
-          <pre><code class="plaintext">/Category 1</code></pre>
-          <pre><code class="plaintext">Category 2</code></pre>
-          <pre><code class="plaintext">Category 2</code></pre>
-          <pre><code class="plaintext">Category 2</code></pre>
+          <pre><code class="plaintext" id="articleContent">Lorem Ipsum</code></pre>
+          <!-- Article Categories -->
+          <h4 id="articleCategories">Article Categories</h4>
+          <!-- Article Content Sentiment -->
+          <h4>Article Content Sentiment Analysis</h4>
+          <p>Sentiment Score </p>
+          <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
+          <p>Sentiment Magnitude</p>
+          <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
+          <!-- Article Entities -->
+          <h4>Article Entities</h4>
+          <table class="table table-light" id="articleEntities">
+            <tr>
+              <th>#</th>
+              <th>Entity</th>
+              <th>Label</th>
+              <th>Description</th>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
