@@ -1,13 +1,19 @@
 $(document).ajaxStart(function() { Pace.restart(); console.log('hello')});
 
 Pace.on("done", function(){
-    $('.rendered-content').fadeIn(500);
-    $(".nlp-section").fadeIn(300);
+    console.log("pace stops.");
+    // $('.page_overlay').css("display", "hidden");
+    $('.page_overlay').delay(300).fadeOut(600);
+    // $(".nlp-section").fadeIn(300);
 });
 
 Pace.on("start", function(){
-    $('.rendered-content').fadeOut(300);
-})
+    console.log("Pace starts.")
+    // $('.page_overlay').show();
+    // $('.page_overlay').css("display", "none");
+    $('.page_overlay').delay(50).fadeIn(150);
+    $('.nlp-section').fadeIn(300);
+});
 
 $('document').ready(function(){
     $('form').on('submit', function(e){

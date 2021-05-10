@@ -1,5 +1,16 @@
-paceOptions = {
-
+window.paceOptions = {
+	startOnLoadPage: true,
+	restartOnPushState: true,
+	minTime: 250,
+	ghostTime: 100,
+	easeFactor: 1.25,
+	maxProgressPerFrame: 20,
+	target: 'body',
     // Only show the progress on regular and ajax-y page navigation, not every request
-    restartOnRequestAfter: 5
+    eventLag: {
+    	minSamples: 10,
+    	sampleCount: 3,
+    	lagThreshold: 3
+    },
+    restartOnRequestAfter: 50
 }
