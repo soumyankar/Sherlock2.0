@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, url_for, Blueprint, render_template
 from tools.extractNews import ExtractNews
 from tools.urlHandling import URLValidator
 from tools.fetchNews import FetchNews
-from classification.contentClassifier import categoryClassify, sentimentClassify
+from classification.contentClassifier import contentClassifier
 from classification.extractKeywords import ExtractEntities, TextRank4Keyword
 
 import time
@@ -45,9 +45,10 @@ def render():
 
 	# Google API article categorizing
 
-	start = time.time() # Verifying elapsed time 	
-	articleCategories = categoryClassify(articleContent)
-	sentimentScore = sentimentClassify(articleContent)
+	start = time.time() # Verifying elapsed time
+	classifier = contentClassifier(articleContent, False) 	
+	articleCategories = classifier.categoryClassify()
+	sentimentScore = classifier.sentimentClassify()
 	end = time.time()
 	elapsedTimeCategorizing = end - start
 
@@ -64,7 +65,7 @@ def render():
 	# Fetching relevant news aritcles frrom NewsAPI
 
 	start = time.time() # Verifying elapsed time 	
-	fetchedNewsArticles = FetchNews(articleKeywords)
+	# fetchedNewsArticles = FetchNews(articleKeywords)
 	end = time.time()
 	elapsedTimeNewsAPI = end - start
 
