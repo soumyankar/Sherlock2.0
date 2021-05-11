@@ -1,3 +1,7 @@
+# Gcloud configuration files
+app.yaml
+.gcloudignore
+appengine_config.py
 # Byte-compiled / optimized / DLL files
 .idea/
 workspace.xml
