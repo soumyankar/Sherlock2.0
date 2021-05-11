@@ -3,7 +3,7 @@ from tools.extractNews import ExtractNews
 from tools.urlHandling import URLValidator
 from tools.fetchNews import FetchNews
 from classification.contentClassifier import categoryClassify, sentimentClassify
-from classification.extractKeywords import ExtractKeywords, ExtractEntities
+from classification.extractKeywords import ExtractEntities, TextRank4Keyword
 
 import time
 import json
@@ -53,7 +53,10 @@ def render():
 
 	# Article Feature Extraction 
 	start = time.time() # Verifying elapsed time 	
-	articleKeywords = ExtractKeywords(articleContent)
+	tr4w = TextRank4Keyword()
+	tr4w.analyze(articleContent, candidate_pos = ['NOUN', 'PROPN'], window_size=4, lower=False)
+	articleKeywords = tr4w.get_keywords(10)
+	print (articleKeywords)
 	articleEntities = ExtractEntities(articleContent)
 	end = time.time()
 	elapsedTimeFeatures = end - start
@@ -80,5 +83,5 @@ def render():
 	data['elapsedTimeCategorizing'] = elapsedTimeCategorizing
 	data['elapsedTimeNewsAPI'] = elapsedTimeNewsAPI
 	data['totalExecutionTime'] = totalExecutionTime
-	print (data)
+
 	return json.dumps(data)
