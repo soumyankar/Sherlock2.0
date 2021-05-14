@@ -18,7 +18,7 @@
             <input type="text" class="form-control p-1 m-1" id="searchQuery" name="searchQuery" placeholder="URL/Data">  
             <!-- Example single danger button -->
             <div class="btn-group m-1">
-              <button type="button" id="content-type" class="btn btn-info">Content Type</button>
+              <button type="button" id="content-type" value="null" class="btn btn-info">Content Type</button>
               <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split input-type" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Select</span>
               </button>
@@ -64,37 +64,31 @@
           <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
         </div>
         <!-- AJAX Request Rendering Section. -->
-        <div class="row nlp-section" style="display: none;">
+        <div class="row" id="nlp-section" style="display: none;">
           <!-- Module Execution Times -->
           <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
           <p>Time taken for judging content = <strong id="elapsedTimeJudgment">0</strong></p>
           <!-- Scraping Module -->
-          <div class="row scraping-module">
-            <p>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></p>
-            <h4>URL Input</h4>
-            <pre><code class="plaintext" id="newsURL">www.somethingbroke.com</code></pre>
-            <!-- Article Title -->
-            <h4>Article Title</h4>
-            <pre><code class="plaintext" id="articleTitle">The world is going to end in 2012!</code></pre>
-            <!-- Article Content -->
-            <h4>Scraped Article Content</h4>
-            <pre><code class="plaintext" id="articleContent">Lorem Ipsum</code></pre>
+          <div class="row" id="scraping-module">
+            <h3>Scraping Module</h3>
           </div>
           <!-- Categorizing Module -->
-          <div class="row categorizing-module">
+          <div class="row" id="categorizing-module">
+            <h3 id="articleCategories">Article Categories</h3>
             <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
-            <h4 id="articleCategories">Article Categories</h4>
-            <!-- Article Content Sentiment -->
-            <h4>Article Content Sentiment Analysis</h4>
+          </div>
+          <!-- Sentiment Analysis Module -->
+          <div class="row" id="sentiment-module">
+            <h3>Article Content Sentiment Analysis</h3>
             <p>Sentiment Score </p>
             <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
             <p>Sentiment Magnitude</p>
             <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
           </div>
           <!-- Article Entities -->
-          <div class="row feature-module">
-            <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
+          <div class="row" id="entity-module">
             <h4>Article Entities</h4>
+            <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
             <table class="table table-light" id="articleEntities">
               <tr>
                 <th>#</th>
@@ -105,10 +99,10 @@
             </table>
           </div>
           <!-- News Fetching and Similarity -->
-          <div class="row webcrawling-module">
-            <p>Time taken for Web Crawling = <strong id="elapsedWebCrawling">0</strong></p> 
-              <h4>Web Crawling and Similarity</h4>
-              <canvas id="fetch-news" width="400" height="400"></canvas>
+          <div class="row" id="webcrawling-module">
+            <h3>Web Crawling and Similarity</h3>
+            <p>Time taken for Web Crawling = <strong id="elapsedWebCrawling">0</strong></p>
+            <canvas id="fetch-news" width="400" height="400"></canvas>
           </div>
         </div>
       </div>

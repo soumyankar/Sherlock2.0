@@ -36,10 +36,8 @@ def FetchNews(keywords):
   newsTitles = []
   newsURLs = []
   newsContents = []
-  print (totalResults)
   for article in totalArticles:
     articleSourceName = article['source']['name']
-    print (articleSourceName)
     articleTitle = article['title']
     articleURL = article['url']
     articleContent = article['content']

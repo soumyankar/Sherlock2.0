@@ -53,8 +53,7 @@ class extractKeywords:
     def GetSimilarity(self, text):
         textnlp = nlp(text)
         similarityPercentage = (textnlp.similarity(self.doc)) * 100
-        print ( "User Doc <-> Fetch Doc", round(similarityPercentage,2))
-        return similarityPercentage
+        return round(similarityPercentage,2)
 
 
     # Helper function for removing duplicate words.

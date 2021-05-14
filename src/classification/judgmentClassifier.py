@@ -16,6 +16,5 @@ def textJudge(text):
         # Print out the JSON payload the API sent back
         json_response = api_response.json()
         response = {"score": json_response['results'][0]['score'], "result": json_response['results'][0]['result']}
-        print (response)
         return response
                     

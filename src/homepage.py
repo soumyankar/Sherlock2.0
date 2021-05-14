@@ -20,7 +20,6 @@ def render():
 	data = json.loads(request.get_data())
 	startTime = time.time()
 	contentType = data['contentType']
-	print ("content Type = " , contentType)
 	articleContent = ""
 	if contentType == "raw":
 		articleContent = data['searchQuery']
