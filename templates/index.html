@@ -16,16 +16,16 @@
         <div class="form-group">
           <div id="input_all"  style="display: flex;">
             <input type="text" class="form-control p-1 m-1" id="searchQuery" name="searchQuery" placeholder="URL/Data">  
-            <!-- Example split danger button -->
+            <!-- Example single danger button -->
             <div class="btn-group m-1">
-              <button type="button" class="btn btn-danger">Select</button>
-              <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
+              <button type="button" id="content-type" class="btn btn-info">Content Type</button>
+              <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split input-type" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Select</span>
               </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">URL</a>
-                <a class="dropdown-item" href="#">Raw Content</a>
-              </div>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" value="raw" id="content-item-raw">Raw Text</a></li>
+                <li><a class="dropdown-item" value="url" id="content-item-url">URL</a></li>
+              </ul>
             </div>
             <button class="btn btn-primary m-1" id="search" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
           </div>
@@ -66,43 +66,49 @@
         <!-- AJAX Request Rendering Section. -->
         <div class="row nlp-section" style="display: none;">
           <!-- Module Execution Times -->
-          <h4>Module Execution Times</h4>
-          <p>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></p>
-          <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
-          <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
-          <p>Time taken for Web Crawling = <strong id="elapsedTimeNewsAPI">0</strong></p>
           <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
+          <p>Time taken for judging content = <strong id="elapsedTimeJudgment">0</strong></p>
           <!-- Scraping Module -->
-          <h4>URL Input</h4>
-          <pre><code class="plaintext" id="newsURL">www.google.come</code></pre>
-          <!-- Article Title -->
-          <h4>Article Title</h4>
-          <pre><code class="plaintext" id="articleTitle">The world is going to end in 2012!</code></pre>
-          <!-- Article Content -->
-          <h4>Scraped Article Content</h4>
-          <pre><code class="plaintext" id="articleContent">Lorem Ipsum</code></pre>
-          <!-- Article Categories -->
-          <h4 id="articleCategories">Article Categories</h4>
-          <!-- Article Content Sentiment -->
-          <h4>Article Content Sentiment Analysis</h4>
-          <p>Sentiment Score </p>
-          <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
-          <p>Sentiment Magnitude</p>
-          <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
+          <div class="row scraping-module">
+            <p>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></p>
+            <h4>URL Input</h4>
+            <pre><code class="plaintext" id="newsURL">www.somethingbroke.com</code></pre>
+            <!-- Article Title -->
+            <h4>Article Title</h4>
+            <pre><code class="plaintext" id="articleTitle">The world is going to end in 2012!</code></pre>
+            <!-- Article Content -->
+            <h4>Scraped Article Content</h4>
+            <pre><code class="plaintext" id="articleContent">Lorem Ipsum</code></pre>
+          </div>
+          <!-- Categorizing Module -->
+          <div class="row categorizing-module">
+            <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
+            <h4 id="articleCategories">Article Categories</h4>
+            <!-- Article Content Sentiment -->
+            <h4>Article Content Sentiment Analysis</h4>
+            <p>Sentiment Score </p>
+            <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
+            <p>Sentiment Magnitude</p>
+            <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
+          </div>
           <!-- Article Entities -->
-          <h4>Article Entities</h4>
-          <table class="table table-light" id="articleEntities">
-            <tr>
-              <th>#</th>
-              <th>Entity</th>
-              <th>Label</th>
-              <th>Description</th>
-            </tr>
-          </table>
+          <div class="row feature-module">
+            <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
+            <h4>Article Entities</h4>
+            <table class="table table-light" id="articleEntities">
+              <tr>
+                <th>#</th>
+                <th>Entity</th>
+                <th>Label</th>
+                <th>Description</th>
+              </tr>
+            </table>
+          </div>
           <!-- News Fetching and Similarity -->
-          <div class="row web-crawling">
-            <h4>Web Crawling and Similarity</h4>
-            <canvas id="fetch-news" width="400" height="400"></canvas>
+          <div class="row webcrawling-module">
+            <p>Time taken for Web Crawling = <strong id="elapsedWebCrawling">0</strong></p> 
+              <h4>Web Crawling and Similarity</h4>
+              <canvas id="fetch-news" width="400" height="400"></canvas>
           </div>
         </div>
       </div>
@@ -119,4 +125,6 @@
 href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
+<!-- Chart.js -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
 {% endblock%}
