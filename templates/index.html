@@ -20,77 +20,111 @@
             <div class="btn-group m-1">
               <button type="button" class="btn btn-danger">Select</button>
               <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <div class="dropdown-menu">
+                <span class="sr-only">
+                  <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">URL</a>
                 <a class="dropdown-item" href="#">Raw Content</a>
               </div>
+                </span>
+              </button>
             </div>
             <button class="btn btn-primary m-1" id="search" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
           </div>
         </div>
       </form>
     </div>
+    <hr style="color: grey;">
     <!-- Attribute show sections -->
-    <div class="row p-3 m-3 content-header">
+    <div class="row">
+    	<div class="col-md-2 justify-content-center">
       <!-- Stats left side column -->
-      <div class="col-md-3 stats-header">
-        <div class="row stats-container">
-          <div class="card" style="width: 18rem;">
+          <div class="card text-white bg-dark" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Server Stats</h5>
+              <h5 class="card-title"><strong>Server Stats</strong></h5>
               <p class="card-text">A section to show the server statistics and the versioning currently being used by Sherlock 2.0</p>
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" style="padding: 10px;">
               <li class="list-group-item">Server Status</li>
               <li class="list-group-item">Server Host</li>
               <li class="list-group-item">Sherlock Versioning</li>
             </ul>
           </div>
-        </div>
-        <div class="row stats-container">
-          <p>GH Repo Link</p>
-          <p>email linnk</p>
-        </div>
-        <div class="row stats-container">
-          <p>Sherlock 2.0 makes use of language models from <a href="https://spacy.io">spaCy.io</a> and other datasets from <a href="https://www.kaggle.com">Kaggle</a>.</p>
-        </div>
-      </div>
-
+          <br><br>
+        <!-- Card to hold Github repo and Email -->
+        <div class="card text-white bg-dark" style="width: 18rem;">
+  			<div class="card-body">
+    			<h5 class="card-title"><strong>Connect with us</strong></h5>
+    			 <div class="row d-flex justify-content-center">
+    			 	<div class="col-md-5 col-6">
+    			 		<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    			 	</div>
+    			 	<div class="col-lg-7 col-6">
+    			 		<p>Our Repository</p>
+    			 	</div>
+    			 </div>
+    			<!-- Section: Form -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row d-flex justify-content-center">
+                  <!--Grid column-->
+                  <div class="col-auto">
+                    <p class="pt-2">
+                      <strong>Email for requirements</strong>
+                    </p>
+                  </div>
+                  <!--Grid column-->
+                  	<ul class="list-group list-group-flush" style="padding: 10px;">
+              			<li class="list-group-item">Soumyankar Mohapatra: soumyankarm@gmail.com</li>
+              			<li class="list-group-item">Anik Mitra: anikmitra2015@gmail.com</li>
+              			<li class="list-group-item">Tirthankar Datta: 97samrat@gmail.com</li>
+            		</ul>
+                  </div>
+                  <!--Grid row-->
+              </section>
+              <!-- Section: Form -->
+  			</div>
+		</div>
+		<br><br>
+	</div>
       <!-- Attributes right side column -->
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div class="row">
-          <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
+          <p><center>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</center></p>
         </div>
         <!-- AJAX Request Rendering Section. -->
         <div class="row nlp-section" style="display: none;">
           <!-- Module Execution Times -->
-          <h4>Module Execution Times</h4>
-          <p>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></p>
-          <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
-          <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
-          <p>Time taken for Web Crawling = <strong id="elapsedTimeNewsAPI">0</strong></p>
-          <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
+          <form>
+          <fieldset>
+          <legend>
+          <strong>Module Execution Times</strong>
+      	  </legend>
+          	<pre>Time taken for Scraping = <strong id="elapsedTimeScraping">0</strong></pre>
+          	<pre>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></pre>
+          	<pre>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></pre>
+          	<pre>Time taken for Web Crawling = <strong id="elapsedTimeNewsAPI">0</strong></pre>
+          	<pre>Total time taken by application = <strong id="totalExecutionTime">0</strong></pre>
+          </fieldset>
+      	  </form>
           <!-- Scraping Module -->
-          <h4>URL Input</h4>
-          <pre><code class="plaintext" id="newsURL">www.google.come</code></pre>
+          <h4><strong>URL Input</strong></h4>
+          <pre id="newsURL">www.google.come</pre>
           <!-- Article Title -->
-          <h4>Article Title</h4>
-          <pre><code class="plaintext" id="articleTitle">The world is going to end in 2012!</code></pre>
+          <h4><strong>Article Title</strong></h4>
+          <pre id="articleTitle">The world is going to end in 2012!</pre>
           <!-- Article Content -->
-          <h4>Scraped Article Content</h4>
-          <pre><code class="plaintext" id="articleContent">Lorem Ipsum</code></pre>
+          <h4><strong>Scraped Article Content</strong></h4>
+          <pre><code class="plaintext" id="articleContent" style="background-color: #000080; color: #fff;">Lorem Ipsum</code></pre>
           <!-- Article Categories -->
-          <h4 id="articleCategories">Article Categories</h4>
+          <h4 id="articleCategories"><strong>Article Categories</strong></h4>
           <!-- Article Content Sentiment -->
-          <h4>Article Content Sentiment Analysis</h4>
-          <p>Sentiment Score </p>
-          <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
-          <p>Sentiment Magnitude</p>
-          <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
+          <h4><strong>Article Content Sentiment Analysis</strong></h4>
+          <h6><strong>Sentiment Score </strong></h6>
+          <pre id="sentimentScore">0.0</pre>
+          <h6><strong>Sentiment Magnitude</strong></h6>
+          <pre id="sentimentMagnitude">0.0</pre>
           <!-- Article Entities -->
-          <h4>Article Entities</h4>
+          <h4><strong>Article Entities</strong></h4>
           <table class="table table-light" id="articleEntities">
             <tr>
               <th>#</th>
@@ -102,7 +136,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </main>
 

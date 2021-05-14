@@ -2,7 +2,10 @@ body{
   font-family: 'Poppins',sans-serif;
 	margin:8;
   font-family: Arial;
-  /*background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");*/
+  color: #fff;
+  /*background-image: url("DSC00156.JPG");*/
+  background-color: #353935;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -21,9 +24,14 @@ body{
 }
 
 h1 {
-  color: black;
+  color: white;
   font-family: Helvetica;
   text-align: center;
+}
+
+h4,pre,h6,tr {
+  color: white;
+  font-variant: Arial;
 }
 
 .container {
