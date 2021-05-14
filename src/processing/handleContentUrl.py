@@ -20,8 +20,11 @@ dataURL = {
 	"articleCategories": {},
 	"sentimentScore": {},
 	"articleEntities": {},
+	"newsSources": {},
+	"similarityFactors": {},
 	"elapsedTimeScraping": 0,
 	"elapsedTimeJudgment": 0,
+	"elapsedTimeSimilarity": 0,
 	"elapsedTimeCategorizing": 0,
 	"elapsedTimeFeatures": 0,
 	"elapsedTimeNewsAPI": 0,
@@ -65,7 +68,7 @@ def handleContentUrl(newsURL):
 	# Fetching relevant news aritcles frrom NewsAPI
 
 	start = time.time() # Verifying elapsed time 	
-	fetchedNewsArticles = FetchNews(articleKeywords)
+	fetchedNewsArticles, newsSources = FetchNews(articleKeywords)
 	end = time.time()
 	elapsedTimeNewsAPI = end - start
 
@@ -86,7 +89,10 @@ def handleContentUrl(newsURL):
 	dataURL['articleCategories'] = articleCategories
 	dataURL['sentimentScore'] = sentimentScore
 	dataURL['articleEntities'] = articleEntities
+	dataURL['newsSources'] = newsSources
+	dataURL['similarityFactors'] = similarityFactors
 	dataURL['elapsedTimeScraping'] = elapsedTimeScraping
+	dataURL['elapsedTimeSimilarity'] = elapsedTimeSimilarity
 	dataURL['elapsedTimeJudgment'] = elapsedTimeJudgment
 	dataURL['elapsedTimeFeatures'] = elapsedTimeFeatures
 	dataURL['elapsedTimeCategorizing'] = elapsedTimeCategorizing

@@ -52,4 +52,4 @@ def FetchNews(keywords):
     newsURLs.append(articleURL)
     newsContents.append(articleContent[0:200]) # Limiting to 200 characters because we dont have the paid version of News API.
 
-  return newsContents
+  return newsContents, newsSources

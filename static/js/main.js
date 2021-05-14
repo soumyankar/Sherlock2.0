@@ -1,4 +1,4 @@
-$(document).ajaxStart(function() { Pace.restart(); console.log('hello')});
+$(document).ajaxStart(function() { Pace.restart(); console.log('Pace restart.')});
 
 Pace.on("done", function(){
     console.log("pace stops.");
@@ -40,7 +40,6 @@ $('document').ready(function(){
                 contentType: $('#content-type').val()
             };
             var data = JSON.stringify(raw);
-            console.log(data);
             $.ajax({
                 global: true,
                 url: '/',
@@ -55,6 +54,7 @@ $('document').ready(function(){
                     $('#elapsedTimeCategorizing').html(parsed_json.elapsedTimeCategorizing);
                     $('#elapsedTimeFeatures').html(parsed_json.elapsedTimeFeatures);
                     $('#elapsedTimeNewsAPI').html(parsed_json.elapsedTimeNewsAPI);
+                    $('#elapsedTimeSimilarity').html(parsed_json.elapsedTimeSimilarity);
                     $('#totalExecutionTime').html(parsed_json.totalExecutionTime);
                     $('#sentimentScore').html(parsed_json.sentimentScore['sentiment_score']);
                     $('#sentimentMagnitude').html(parsed_json.sentimentScore['sentiment_magnitude']);
@@ -76,7 +76,7 @@ $('document').ready(function(){
                         $('#articleEntities').append(refactoredHTMLContent);
                     });
 
-                    fetchNews();
+                    fetchNews(parsed_json.newsSources, parsed_json.similarityFactors);
                 },
                 error: function(error) {
                     console.log(error);
@@ -86,16 +86,18 @@ $('document').ready(function(){
     });
 });
 
-function fetchNews()
+function fetchNews(labels, data)
 {
+    console.log(labels);
+    console.log(data);
     var ctx = document.getElementById('fetch-news').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: labels,
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Similarity %\'s',
+                data: data,
                 backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
