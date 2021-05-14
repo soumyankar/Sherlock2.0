@@ -44,9 +44,9 @@ def FetchNews(keywords):
     if articleSourceName in newsSources:
       index = newsSources.index(articleSourceName)
       newsSourcesCount[index] += 1
-    if articleSourceName not in newsSources:
-      newsSources.append(articleSourceName)
-      newsSourcesCount.append(1)
+    # if articleSourceName not in newsSources:
+    newsSources.append(articleSourceName)
+    newsSourcesCount.append(1)
 
     newsTitles.append(articleTitle)
     newsURLs.append(articleURL)
