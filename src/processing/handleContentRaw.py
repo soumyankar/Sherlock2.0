@@ -68,7 +68,8 @@ def handleContentRaw(articleContent):
 	elapsedTimeSimilarity = end - start
 
 	# Pass values to frontend.
-	dataRAW['articleContent'] = articleContent
+	dataRAW['articleContent'] = articleContent	
+	dataRAW['articleContentJudgment'] = articleContentJudgment
 	dataRAW['articleCategories'] = articleCategories
 	dataRAW['sentimentScore'] = sentimentScore
 	dataRAW['articleEntities'] = articleEntities
