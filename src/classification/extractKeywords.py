@@ -7,7 +7,7 @@ from string import punctuation
 from spacy.lang.en.stop_words import STOP_WORDS
 
 # Define all the features and the labels.
-nlp = spacy.load('en_core_web_sm') # The spacy model that we'll be using.
+nlp = spacy.load('en_core_web_lg') # The spacy model that we'll be using.
 nlp.add_pipe("textrank")
 
 class extractKeywords:

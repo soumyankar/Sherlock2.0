@@ -37,6 +37,11 @@ $('document').ready(function(){
             window.alert("Make sure the search box and the dropdown both have been filled in.");
             return;
         }
+        if( rawDataTokenValidator() ==false)
+        {
+            window.alert("Please enter more than 20 words when inputting raw text.");
+            return;
+        }
         Pace.track(function(){
             var raw = {
                 searchQuery: $('#searchQuery').val(),
@@ -135,6 +140,20 @@ function validateData()
     if($('#searchQuery').val().length === 0 || $('#content-type').val() == "null")
         return false;
     return true;
+}
+
+function rawDataTokenValidator()
+{
+    if( $('#content-type').val() == "url" )
+        return true;
+    var content = $('#searchQuery').val();
+    if( countWords(content) < 20 )
+        return false;
+    return true;
+}
+
+function countWords(str) {
+  return str.trim().split(/\s+/).length;
 }
 
 function scrapingModule(contentType, response)
