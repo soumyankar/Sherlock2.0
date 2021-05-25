@@ -8,9 +8,8 @@
     <div class="row p-3 m-3">
       <div class="d-flex flex-column justify-content-center">
         <h1 class="fw-bold text-center">SHERLOCK 2.0</h1>
-        <h4 class="fw-light justify-content-center text-center">Hi, welcome to SHERLOCK 2.0. This is an application which detects the Truth/Falsity of a news article based on Machine Learning and Recurrent Neural Networks.</h4>
-        <h4 class="fw-light justify-content-center text-center">So , what are you waiting for , Let's Go....</h4>
-        <h4 class="fw-light justify-content-center text-center">What type of data do you want to enter..??</h4>
+        <h4 class="fw-light justify-content-center text-center">Hi, welcome to SHERLOCK 2.0. This is an application which calculates the authenticity of any news article.</h4>
+        <h4 class="fw-light justify-content-center text-center">The application works on a set of classifiers, web-crawlers, fact-checkers to arrive at a decision. </h4>
       </div>
       <form id="searchForm">
         <div class="form-group">
@@ -27,7 +26,7 @@
                 <li><a class="dropdown-item" value="url" id="content-item-url">URL</a></li>
               </ul>
             </div>
-            <button class="btn btn-primary m-1" id="search" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Let's Go..!</button>
+            <button class="btn btn-primary m-1" id="search" type="submit" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3">Go!</button>
           </div>
         </div>
       </form>
@@ -40,75 +39,94 @@
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Server Stats</h5>
-              <p class="card-text">A section to show the server statistics and the versioning currently being used by Sherlock 2.0</p>
+              <p class="card-text">Sherlock 2.0 runs on the <a href="https://cloud.google.com">Google Cloud Platform</a> and is going to cease on the 19th of July, 2021.</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Server Status</li>
-              <li class="list-group-item">Server Host</li>
-              <li class="list-group-item">Sherlock Versioning</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row stats-container">
-          <p>GH Repo Link</p>
-          <p>email linnk</p>
-        </div>
-        <div class="row stats-container">
-          <p>Sherlock 2.0 makes use of language models from <a href="https://spacy.io">spaCy.io</a> and other datasets from <a href="https://www.kaggle.com">Kaggle</a>.</p>
+              <li class="list-group-item p-auto">
+                <p class="text-muted">
+                  <span class="text-success"><i class="fas fa-circle-notch"></i></span>
+                Active and Ready!</p>
+              </li>
+              <li class="list-group-item p-auto">
+                <p class="text-muted">
+                  <i class="fas fa-server"></i>
+                  https://sherlock2-0.el.r.appspot.com
+                </p>
+              </li>
+              <li class="list-group-item p-auto">
+                <p class="text-muted">Sherlock 2.0 v1 <span class="text-muted float-end" style="background: #f0f0f0;">19f64a8</span></p>
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <!-- Attributes right side column -->
-      <div class="col-md-9">
-        <div class="row">
-          <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
-        </div>
-        <!-- AJAX Request Rendering Section. -->
-        <div class="row" id="nlp-section" style="display: none;">
-          <!-- Module Execution Times -->
-          <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
-          <p>Time taken for judging content = <strong id="elapsedTimeJudgment">0</strong></p>
-          <!-- Scraping Module -->
-          <div class="row" id="scraping-module">
-            <h3>Scraping Module</h3>
-          </div>
-          <!-- Categorizing Module -->
-          <div class="row" id="categorizing-module">
-            <h3 id="articleCategories">Article Categories</h3>
-            <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
-          </div>
-          <!-- Sentiment Analysis Module -->
-          <div class="row" id="sentiment-module">
-            <h3>Article Content Sentiment Analysis</h3>
-            <p>Sentiment Score </p>
-            <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
-            <p>Sentiment Magnitude</p>
-            <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
-          </div>
-          <!-- Article Entities -->
-          <div class="row" id="entity-module">
-            <h4>Article Entities</h4>
-            <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
-            <table class="table table-light" id="articleEntities">
-              <tr>
-                <th>#</th>
-                <th>Entity</th>
-                <th>Label</th>
-                <th>Description</th>
-              </tr>
-            </table>
-          </div>
-          <!-- News Fetching and Similarity -->
-          <div class="row" id="webcrawling-module">
-            <h3>Web Crawling and Similarity</h3>
-            <p>Time taken for Web Crawling = <strong id="elapsedTimeSimilarity">0</strong></p>
-            <canvas id="fetch-news" width="400" height="400"></canvas>
-          </div>
-        </div>
+      <div class="row stats-container">
+        <p><i class="fab fa-github"></i> Star us on <a href="https://github.com/soumyankar/Sherlock2.0">Github.</a></p>
+        <p><i class="fas fa-envelope"></i> Feel free to contact <a href="mailto: soumyankarm@gmail.com">Soumyankar</a>, <a href="mailto: anikmitra2015@gmail.com">Anik</a> or <a href="mailto: 97samrat@gmail.com">Tirthankar</a>.</p>
+      </div>
+      <div class="row stats-container">
+        <p>Sherlock 2.0 makes use of language models from <a href="https://spacy.io">spaCy.io</a> and other datasets from <a href="https://www.kaggle.com">Kaggle</a>.</p>
+      </div>
+      <div class="row stats-container">
+        <p>
+          Sherlock 2.0 makes uses of <a href="https://getbootstrap.com">Bootstrap 5</a> 
+          and other front-end plugins such as <a href="https://github.com/CodeByZach/pace">Pace.js</a>, 
+          and <a href="https://github.com/chunksnbits/jquery-quickfit">Jquery.quickfit.js</a>.
+        </p>
       </div>
     </div>
 
+    <!-- Attributes right side column -->
+    <div class="col-md-9">
+      <div class="row">
+        <p>Sherlock 2.0 allows you to derive entities of any article publicly available on the internet. This application can judge the veracity of the article content.</p>
+      </div>
+      <!-- AJAX Request Rendering Section. -->
+      <div class="row" id="nlp-section" style="display: none;">
+        <!-- Module Execution Times -->
+        <p>Total time taken by application = <strong id="totalExecutionTime">0</strong></p>
+        <p>Time taken for judging content = <strong id="elapsedTimeJudgment">0</strong></p>
+        <!-- Scraping Module -->
+        <div class="row" id="scraping-module">
+          <h3>Scraping Module</h3>
+        </div>
+        <!-- Categorizing Module -->
+        <div class="row" id="categorizing-module">
+          <h3 id="articleCategories">Article Categories</h3>
+          <p>Time taken for Categorizing = <strong id="elapsedTimeCategorizing">0</strong></p>
+        </div>
+        <!-- Sentiment Analysis Module -->
+        <div class="row" id="sentiment-module">
+          <h3>Article Content Sentiment Analysis</h3>
+          <p>Sentiment Score </p>
+          <pre><code class="plaintext" id="sentimentScore">0.0</code></pre>
+          <p>Sentiment Magnitude</p>
+          <pre><code class="plaintext" id="sentimentMagnitude">0.0</code></pre>
+        </div>
+        <!-- Article Entities -->
+        <div class="row" id="entity-module">
+          <h4>Article Entities</h4>
+          <p>Time taken for Feature Extraction = <strong id="elapsedTimeFeatures">0</strong></p>
+          <table class="table table-light" id="articleEntities">
+            <tr>
+              <th>#</th>
+              <th>Entity</th>
+              <th>Label</th>
+              <th>Description</th>
+            </tr>
+          </table>
+        </div>
+        <!-- News Fetching and Similarity -->
+        <div class="row" id="webcrawling-module">
+          <h3>Web Crawling and Similarity</h3>
+          <p>Time taken for Web Crawling = <strong id="elapsedTimeSimilarity">0</strong></p>
+          <canvas id="fetch-news" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
   </div>
+
+</div>
 </main>
 
 {% endblock %}
@@ -121,4 +139,6 @@ href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.cs
 <script>hljs.highlightAll();</script>
 <!-- Chart.js -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+<!-- Jquery.quickfit.js -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.quickfit.js') }}"></script>
 {% endblock%}

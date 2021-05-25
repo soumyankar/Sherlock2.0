@@ -27,6 +27,9 @@ $('document').ready(function(){
 });
 
 $('document').ready(function(){
+    $('li').quickfit(min=16);
+});
+$('document').ready(function(){
     $('form').on('submit', function(e){
         e.preventDefault();
         if(validateData()==false)
